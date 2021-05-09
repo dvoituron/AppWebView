@@ -17,10 +17,10 @@ namespace AppWebView
             ConfigureWebView2();
 
             // Add WebView2 into this Window
-            _webViewContent.Location = new System.Drawing.Point(0, 0);
+            _webViewContent.Location = new Point(36, 0);
             _webViewContent.Margin = new Padding(0);
-            _webViewContent.Size = new System.Drawing.Size(this.ClientSize.Width, this.ClientSize.Height);
-            _webViewContent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;            
+            _webViewContent.Size = new Size(this.ClientSize.Width - 36, this.ClientSize.Height);
+            _webViewContent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             this.Controls.Add(_webViewContent);
 
             this.Load += MainForm_Load;
