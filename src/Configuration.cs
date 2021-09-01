@@ -9,7 +9,7 @@ namespace AppWebView
     {
         public static readonly DirectoryInfo CURRENT_PATH = new DirectoryInfo(AppContext.BaseDirectory);
 
-        public string LaunchUrl { get; set; } = "https://outlook.office.com/";
+        public string LaunchUrl { get; set; } = "https://teams.office.com/";
 
         public string IconFilename { get; set; } = "";
 
@@ -41,6 +41,12 @@ namespace AppWebView
             {
                 string fileContent = File.ReadAllText(Filename.FullName);
                 config = JsonSerializer.Deserialize<Configuration>(fileContent);
+
+                if (config.Location.X < -1000 || config.Location.Y < -1000)
+                    config.Location = new Point(0, 0);
+
+                if (config.Size.Width < -1000 || config.Size.Height < -1000)
+                    config.Size = new Size(1280, 720);
 
                 this.LaunchUrl = config.LaunchUrl;
                 this.Location = config.Location;
