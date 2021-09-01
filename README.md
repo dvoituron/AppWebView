@@ -12,3 +12,6 @@ Light application to display a web site like a real application. Example: Outloo
 3. Run the **AppWebView.exe** file and configure your startup page :
    Right-click on the top bar and select `Configuration...`.
    Restart the application when a change is done.
+   
+# Demonstration
+  [![Demo](https://img.youtube.com/vi/4by5R63kDkA/0.jpg)](https://www.youtube.com/watch?v=4by5R63kDkA)
