@@ -13,7 +13,10 @@ namespace AppWebView
 
         public MainForm()
         {
+            _configuration.Load();
+
             InitializeComponent();
+
             ConfigureWebView2();
 
             // Add WebView2 into this Window
@@ -29,8 +32,6 @@ namespace AppWebView
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _configuration.Load();
-
             if (File.Exists(_configuration.IconFilename))
             {
                 using (var stream = File.OpenRead(_configuration.IconFilename))
@@ -80,6 +81,19 @@ namespace AppWebView
         {
             string userData = Configuration.BrowserUserData.FullName;
             _webViewContent.CreationProperties = new CoreWebView2CreationProperties();
+            
+            if (!String.IsNullOrEmpty(_configuration.BrowserFixedVersionFolder) &&
+                Directory.Exists(_configuration.BrowserFixedVersionFolder))
+            {
+                _webViewContent.CreationProperties.BrowserExecutableFolder = _configuration.BrowserFixedVersionFolder;
+            }
+            _webViewContent.CoreWebView2InitializationCompleted += (sender, e) => 
+            {
+                if (e.IsSuccess == false)
+                {
+                    MessageBox.Show(e.InitializationException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            };
             _webViewContent.CreationProperties.UserDataFolder = userData;
             _webViewContent.EnsureCoreWebView2Async();
         }

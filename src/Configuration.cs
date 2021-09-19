@@ -9,9 +9,11 @@ namespace AppWebView
     {
         public static readonly DirectoryInfo CURRENT_PATH = new DirectoryInfo(AppContext.BaseDirectory);
 
-        public string LaunchUrl { get; set; } = "https://teams.office.com/";
+        public string LaunchUrl { get; set; } = "https://teams.microsoft.com/";
 
         public string IconFilename { get; set; } = "";
+
+        public string BrowserFixedVersionFolder { get; set; } = "";
 
         public Point Location { get; set; } = new Point(10, 10);
 
@@ -49,6 +51,7 @@ namespace AppWebView
                     config.Size = new Size(1280, 720);
 
                 this.LaunchUrl = config.LaunchUrl;
+                this.BrowserFixedVersionFolder = config.BrowserFixedVersionFolder;
                 this.Location = config.Location;
                 this.Size = config.Size;
                 this.IconFilename = config.IconFilename;
@@ -56,7 +59,7 @@ namespace AppWebView
 
             return config;
         }
-
+        
         public void Save()
         {
             var options = new JsonSerializerOptions()
