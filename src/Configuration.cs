@@ -54,7 +54,17 @@ namespace AppWebView
                 this.BrowserFixedVersionFolder = config.BrowserFixedVersionFolder;
                 this.Location = config.Location;
                 this.Size = config.Size;
-                this.IconFilename = config.IconFilename;
+                this.IconFilename = config.IconFilename;                
+            }
+
+            // Check if sub-folder Edge is existing
+            if (String.IsNullOrEmpty(BrowserFixedVersionFolder))
+            {
+                var edgeFolder = new FileInfo(Path.Combine(CURRENT_PATH.FullName, "Edge\\msedgewebview2.exe"));
+                if (edgeFolder.Exists)
+                {
+                    this.BrowserFixedVersionFolder = Path.Combine(CURRENT_PATH.FullName, "Edge");
+                }
             }
 
             return config;

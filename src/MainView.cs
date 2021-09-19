@@ -91,7 +91,12 @@ namespace AppWebView
             {
                 if (e.IsSuccess == false)
                 {
-                    MessageBox.Show(e.InitializationException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An error occured. Right-click on the top bar and select Configuration to download and set a valid Edge Fixed Version." + 
+                                        Environment.NewLine +
+                                        e.InitializationException.Message, 
+                                    "Error", 
+                                    MessageBoxButtons.OK, 
+                                    MessageBoxIcon.Error);
                 }
             };
             _webViewContent.CreationProperties.UserDataFolder = userData;

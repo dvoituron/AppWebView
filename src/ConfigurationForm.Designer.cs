@@ -38,12 +38,13 @@ namespace AppWebView
             this.txtEdgeFolder = new System.Windows.Forms.TextBox();
             this.lblEdgeFolder = new System.Windows.Forms.Label();
             this.lnkEdgeFolder = new System.Windows.Forms.LinkLabel();
+            this.lnkEdgeExtract = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(303, 132);
+            this.btnOK.Location = new System.Drawing.Point(319, 172);
             this.btnOK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(82, 22);
@@ -55,7 +56,7 @@ namespace AppWebView
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(390, 132);
+            this.btnCancel.Location = new System.Drawing.Point(406, 172);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(82, 22);
@@ -81,7 +82,7 @@ namespace AppWebView
             this.txtLaunchUrl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLaunchUrl.Name = "txtLaunchUrl";
             this.txtLaunchUrl.PlaceholderText = "(Required) https://teams.microsoft.com";
-            this.txtLaunchUrl.Size = new System.Drawing.Size(371, 23);
+            this.txtLaunchUrl.Size = new System.Drawing.Size(387, 23);
             this.txtLaunchUrl.TabIndex = 3;
             // 
             // txtIcon
@@ -92,7 +93,7 @@ namespace AppWebView
             this.txtIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIcon.Name = "txtIcon";
             this.txtIcon.PlaceholderText = "(Optional) C:\\MyApp\\Teams.ico";
-            this.txtIcon.Size = new System.Drawing.Size(371, 23);
+            this.txtIcon.Size = new System.Drawing.Size(387, 23);
             this.txtIcon.TabIndex = 5;
             // 
             // lblIcon
@@ -112,7 +113,7 @@ namespace AppWebView
             this.txtEdgeFolder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEdgeFolder.Name = "txtEdgeFolder";
             this.txtEdgeFolder.PlaceholderText = "(Optional) C:\\MyApp\\Edge93";
-            this.txtEdgeFolder.Size = new System.Drawing.Size(371, 23);
+            this.txtEdgeFolder.Size = new System.Drawing.Size(387, 23);
             this.txtEdgeFolder.TabIndex = 6;
             // 
             // lblEdgeFolder
@@ -127,13 +128,24 @@ namespace AppWebView
             // lnkEdgeFolder
             // 
             this.lnkEdgeFolder.AutoSize = true;
-            this.lnkEdgeFolder.Location = new System.Drawing.Point(102, 102);
+            this.lnkEdgeFolder.Location = new System.Drawing.Point(116, 103);
             this.lnkEdgeFolder.Name = "lnkEdgeFolder";
-            this.lnkEdgeFolder.Size = new System.Drawing.Size(188, 15);
+            this.lnkEdgeFolder.Size = new System.Drawing.Size(200, 15);
             this.lnkEdgeFolder.TabIndex = 8;
             this.lnkEdgeFolder.TabStop = true;
-            this.lnkEdgeFolder.Text = "Download a Fixed Version of Edge.";
+            this.lnkEdgeFolder.Text = "1. Download a Fixed Version of Edge.";
             this.lnkEdgeFolder.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkEdgeFolder_LinkClicked);
+            // 
+            // lnkEdgeExtract
+            // 
+            this.lnkEdgeExtract.AutoSize = true;
+            this.lnkEdgeExtract.Location = new System.Drawing.Point(116, 128);
+            this.lnkEdgeExtract.Name = "lnkEdgeExtract";
+            this.lnkEdgeExtract.Size = new System.Drawing.Size(207, 15);
+            this.lnkEdgeExtract.TabIndex = 11;
+            this.lnkEdgeExtract.TabStop = true;
+            this.lnkEdgeExtract.Text = "2. Load this CAB file into the software.";
+            this.lnkEdgeExtract.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkEdgeExtract_LinkClicked);
             // 
             // ConfigurationForm
             // 
@@ -141,7 +153,8 @@ namespace AppWebView
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(483, 162);
+            this.ClientSize = new System.Drawing.Size(499, 202);
+            this.Controls.Add(this.lnkEdgeExtract);
             this.Controls.Add(this.lnkEdgeFolder);
             this.Controls.Add(this.lblEdgeFolder);
             this.Controls.Add(this.txtEdgeFolder);
@@ -175,5 +188,6 @@ namespace AppWebView
         private System.Windows.Forms.TextBox txtEdgeFolder;
         private System.Windows.Forms.Label lblEdgeFolder;
         private System.Windows.Forms.LinkLabel lnkEdgeFolder;
+        private System.Windows.Forms.LinkLabel lnkEdgeExtract;
     }
 }
